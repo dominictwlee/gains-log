@@ -1,3 +1,3 @@
-import Programmes from './programmes';
+import Programmes from './Programmes';
 
 export { Programmes };

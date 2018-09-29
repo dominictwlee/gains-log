@@ -1,3 +1,4 @@
 import Programmes from './Programmes';
+import NewProgramme from './NewProgramme';
 
-export { Programmes };
+export { Programmes, NewProgramme };

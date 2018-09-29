@@ -1,31 +1,29 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Programmes } from './src/programmes';
+import { createStackNavigator } from 'react-navigation';
+import { Programmes, NewProgramme } from './src/programmes';
+import colors from './src/styles/colors';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const RootStack = createStackNavigator(
+  {
+    Programmes: Programmes,
+    NewProgramme: NewProgramme,
   },
-});
+  {
+    initialRouteName: 'Programmes',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: colors.primaryBlue,
+      },
+      headerTintColor: colors.white,
+      // headerRightContainerStyle: {
+      //   paddingRight: 10,
+      // },
+    },
+  }
+);
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Programmes />
-      </View>
-    );
+    return <RootStack />;
   }
 }

@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const HeaderButton = ({ icon, ...props }) => (
+const HeaderButton = ({ icon, iconSize, ...props }) => (
   <TouchableHighlight
     {...props}
     style={styles.touchable}
     underlayColor={hexToRGBA(colors.charcoal, 0.4)}
   >
-    <Icon name={icon} size={30} color={colors.white} />
+    <Icon name={icon} size={iconSize} color={colors.white} />
   </TouchableHighlight>
 );
 

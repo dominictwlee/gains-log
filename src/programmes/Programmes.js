@@ -6,7 +6,9 @@ export default class Programmes extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Programmes',
-      headerRight: <HeaderButton icon="plus" onPress={navigation.getParam('addNewProgramme')} />,
+      headerRight: (
+        <HeaderButton icon="plus" iconSize={30} onPress={navigation.getParam('addNewProgramme')} />
+      ),
     };
   };
 

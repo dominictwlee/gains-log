@@ -1,10 +1,17 @@
 import { ADD_PROGRAMME } from './actionTypes';
 
-const initialState = {
-  programmes: [],
-};
+const initialState = [
+  {
+    name: 'Gains 5x5',
+    note: 'To get super swole',
+  },
+  {
+    name: 'Marathon 101',
+    note: 'Nooo gainzzz',
+  },
+];
 
-const programmesReducer = (state = initialState, action) => {
+const programmes = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PROGRAMME: {
       return { ...state, programmes: [...state.programmes, action.payload] };
@@ -14,4 +21,4 @@ const programmesReducer = (state = initialState, action) => {
   }
 };
 
-export default programmesReducer;
+export default programmes;

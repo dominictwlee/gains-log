@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { HeaderButton } from '../components';
+import ProgrammeCard from './ProgrammeCard';
+import colors from '../styles/colors';
+
+const styles = StyleSheet.create({
+  screenContainer: {
+    backgroundColor: colors.gunMetal,
+    width: '100%',
+    height: '100%',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  },
+});
+
+const icons = ['edit', 'archive', 'trash-2'];
 
 class Programmes extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -27,20 +41,10 @@ class Programmes extends Component {
   render() {
     const { programmes } = this.props;
     return (
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-        }}
-      >
-        <ScrollView>
-          {programmes.map(p => (
-            <View key={p.name}>
-              <Text>{p.name}</Text>
-              <Text>{p.note}</Text>
-            </View>
+      <View style={styles.screenContainer}>
+        <ScrollView style={{ width: '100%' }}>
+          {programmes.map(({ name, note }) => (
+            <ProgrammeCard key={name} name={name} summary={note} icons={icons} />
           ))}
         </ScrollView>
       </View>

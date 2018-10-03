@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Text, View, TextInput, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import uuid from 'uuid/v1';
+
 import { HeaderButton } from '../components';
+import { addProgramme } from './actions';
 
 const styles = StyleSheet.create({
   fieldWrapper: {
@@ -25,7 +29,7 @@ class NewProgramme extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      programmeName: '',
+      name: '',
       note: '',
     };
   }
@@ -37,6 +41,10 @@ class NewProgramme extends Component {
   }
 
   _handleSaveProgramme = () => {
+    const { name, note } = this.state;
+    const { addProgramme } = this.props;
+    const id = uuid();
+    addProgramme({ name, note, id });
     this.props.navigation.navigate('Programmes');
   };
 
@@ -44,9 +52,9 @@ class NewProgramme extends Component {
     return (
       <Fragment>
         <View style={styles.fieldWrapper}>
-          <Text>PROGRAMME NAME</Text>
+          <Text>Programme Name</Text>
           <TextInput
-            onChangeText={text => this.setState({ programmeName: text })}
+            onChangeText={text => this.setState({ name: text })}
             underlineColorAndroid="black"
           />
         </View>
@@ -62,4 +70,11 @@ class NewProgramme extends Component {
   }
 }
 
-export default NewProgramme;
+const mapDispatchToProps = dispatch => ({
+  addProgramme: programme => dispatch(addProgramme(programme)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(NewProgramme);

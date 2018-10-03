@@ -6,16 +6,18 @@ import { fontStyles, colors } from '../styles';
 
 const styles = StyleSheet.create({
   card: {
-    paddingHorizontal: 5,
-    paddingVertical: 10,
+    padding: 10,
     backgroundColor: colors.cloud,
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
   },
   iconBar: {
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginLeft: 25,
   },
 });
 
@@ -27,7 +29,7 @@ const ProgrammeCard = ({ name, summary, icons }) => (
     </View>
     <View style={styles.iconBar}>
       {icons.map(i => (
-        <Icon name={i} key={i} size={25} />
+        <Icon name={i} key={i} size={25} style={styles.icon} />
       ))}
     </View>
   </View>

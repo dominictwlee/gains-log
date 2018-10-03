@@ -14,7 +14,7 @@ const initialState = [
 const programmes = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PROGRAMME: {
-      return { ...state, programmes: [...state.programmes, action.payload] };
+      return [...state, action.payload];
     }
     default:
       return state;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
+
 import colors from '../styles/colors';
+import { capitalize } from '../utils/textUtils';
 
 const styles = StyleSheet.create({
   card: {
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
 
 const TextField = ({ label, handleInputChange }) => (
   <View style={styles.card}>
-    <Text style={styles.label}>{label}</Text>
+    <Text style={styles.label}>{capitalize(label)}</Text>
     <TextInput
       onChangeText={text => handleInputChange(label, text)}
       underlineColorAndroid="transparent"

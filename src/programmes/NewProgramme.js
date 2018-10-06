@@ -1,14 +1,17 @@
-import React, { Component, Fragment } from 'react';
-import { Text, View, TextInput, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 
-import { HeaderButton } from '../components';
+import { HeaderButton, TextField } from '../components';
 import { addProgramme } from './actions';
+import colors from '../styles/colors';
 
 const styles = StyleSheet.create({
-  fieldWrapper: {
-    margin: 20,
+  screenContainer: {
+    backgroundColor: colors.gunMetal,
+    width: '100%',
+    height: '100%',
   },
 });
 
@@ -36,11 +39,11 @@ class NewProgramme extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({
-      handleSaveProgramme: this._handleSaveProgramme,
+      handleSaveProgramme: this.handleSaveProgramme,
     });
   }
 
-  _handleSaveProgramme = () => {
+  handleSaveProgramme = () => {
     const { name, note } = this.state;
     const { addProgramme } = this.props;
     const id = uuid();
@@ -48,24 +51,17 @@ class NewProgramme extends Component {
     this.props.navigation.navigate('Programmes');
   };
 
+  handleInputChange = (key, value) => {
+    this.setState({ [key]: value });
+  };
+
   render() {
     return (
-      <Fragment>
-        <View style={styles.fieldWrapper}>
-          <Text>Programme Name</Text>
-          <TextInput
-            onChangeText={text => this.setState({ name: text })}
-            underlineColorAndroid="black"
-          />
-        </View>
-        <View style={styles.fieldWrapper}>
-          <Text>Note</Text>
-          <TextInput
-            onChangeText={text => this.setState({ note: text })}
-            underlineColorAndroid="black"
-          />
-        </View>
-      </Fragment>
+      <View style={styles.screenContainer}>
+        {Object.keys(this.state).map(input => (
+          <TextField key={input} label={input} handleInputChange={this.handleInputChange} />
+        ))}
+      </View>
     );
   }
 }

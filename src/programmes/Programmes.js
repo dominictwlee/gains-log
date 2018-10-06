@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
+import { deleteProgramme } from './actions';
 import { HeaderButton } from '../components';
 import ProgrammeCard from './ProgrammeCard';
 import colors from '../styles/colors';
@@ -39,12 +40,19 @@ class Programmes extends Component {
   };
 
   render() {
-    const { programmes } = this.props;
+    const { programmes, deleteProgramme } = this.props;
     return (
       <View style={styles.screenContainer}>
         <ScrollView style={{ width: '100%' }}>
-          {programmes.map(({ name, note }) => (
-            <ProgrammeCard key={name} name={name} summary={note} icons={icons} />
+          {programmes.map(({ name, note, id }) => (
+            <ProgrammeCard
+              key={id}
+              programmeId={id}
+              name={name}
+              summary={note}
+              icons={icons}
+              handleDeleteProgramme={deleteProgramme}
+            />
           ))}
         </ScrollView>
       </View>
@@ -54,4 +62,11 @@ class Programmes extends Component {
 
 const mapStateToProps = state => ({ programmes: state.programmes });
 
-export default connect(mapStateToProps)(Programmes);
+const mapDispatchToProps = dispatch => ({
+  deleteProgramme: programmeId => dispatch(deleteProgramme(programmeId)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Programmes);

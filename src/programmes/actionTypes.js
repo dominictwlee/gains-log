@@ -1,1 +1,2 @@
 export const ADD_PROGRAMME = 'ADD_PROGRAMME';
+export const DELETE_PROGRAMME = 'DELETE_PROGRAMME';

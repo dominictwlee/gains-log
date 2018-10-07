@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "587395205047",
+    "firebase_url": "https://gainslog-86228.firebaseio.com",
+    "project_id": "gainslog-86228",
+    "storage_bucket": "gainslog-86228.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587395205047:android:5d7236d0edbf6e32",
+        "android_client_info": {
+          "package_name": "com.gainslog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587395205047-6h1h489esuncdhlca12nihqnr5qi5qci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gainslog",
+            "certificate_hash": "24140a093e7b716537cb412df733af31052e3828"
+          }
+        },
+        {
+          "client_id": "587395205047-c5ogrliat75ifa266i0up1o1ev2imebo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjiN2bJclvVJUvocTvWTayuvftCzFjgnA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587395205047-c5ogrliat75ifa266i0up1o1ev2imebo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

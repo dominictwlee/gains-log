@@ -1,14 +1,20 @@
 {
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "standard",
     "plugin:flowtype/recommended",
-    "plugin:import/errors",
+    "plugin:react/recommended",
+    "react-native",
     "prettier",
     "prettier/flowtype",
-    "prettier/react"
+    "prettier/react",
+    "prettier/standard"
   ],
-  "plugins": ["react", "react-native", "flowtype", "import", "prettier"],
+  "plugins": ["flowtype", "react", "react-native", "prettier", "standard"],
+  "settings": {
+    "react": {
+      "version": "16.5.0"
+    }
+  },
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -19,22 +25,30 @@
   },
   "env": {
     "node": true,
-    "react-native/react-native": true,
     "jest": true,
     "es6": true
   },
   "rules": {
+    "no-invalid-this": "off",
     "no-console": "warn",
-    "no-alert": "error",
-    "no-throw-literal": "error",
-    "no-unused-expressions": "error",
-    "no-unused-vars": "error",
     "prefer-rest-params": "error",
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "react-native/no-unused-styles": "error",
+    "import/no-unresolved": "error",
+    "import/named": "error",
+    "import/default": "error",
+    "import/no-self-import": "error",
+    "import/no-useless-path-segments": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-absolute-path": "error",
+    "import/no-cycle": "error",
+    "import/no-namespace": "off",
+    "import/no-extraneous-dependencies": "error",
+    "import/export": "error",
     "react/prop-types": "off",
-    "react/display-name": "off",
-    "react/no-array-index-key": "error",
-    "react/no-typos": "error"
+    "class-methods-use-this": "off",
+    "react-native/split-platform-components": "off",
+    "react/jsx-handler-names": "off",
+    "arrow-body-style": ["off"]
   }
 }
